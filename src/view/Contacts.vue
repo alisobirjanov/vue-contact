@@ -57,7 +57,7 @@ const filters: Ref<any> = ref({
   groups: "",
 });
 
-const filteredContacts: Ref<IContact> = ref(store.getters.getContacts);
+const filteredContacts: Ref<IContact[]> = ref(store.getters.getContacts);
 
 let timer: any;
 

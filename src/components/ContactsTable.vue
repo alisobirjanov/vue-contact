@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(contact, index) in contacts" :key="index">
+        <tr v-for="(contact, index) in props.contacts" :key="index">
           <td>{{ contact.full_name }}</td>
           <td>{{ contact.phone }}</td>
           <td>{{ contact.email }}</td>
@@ -43,16 +43,12 @@
 
 <script setup lang="ts">
 import { defineProps } from "vue";
-import { useStore } from 'vuex'
+import { useStore } from "vuex";
+import { IContact } from "../store";
 
-const store = useStore()
+const store = useStore();
 
-defineProps({
-  contacts: {
-    type: Array,
-    required: true,
-  },
-});
+const props = defineProps<{ contacts: IContact[] }>();
 </script>
 
 <style scoped>
